@@ -1,0 +1,271 @@
+{
+  "last_node_id": 16,
+  "last_link_id": 28,
+  "nodes": [
+    {
+      "id": 2,
+      "type": "LoadImage",
+      "pos": [
+        120,
+        70
+      ],
+      "size": [
+        240,
+        310
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            1
+          ],
+          "shape": 3
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            2
+          ],
+          "shape": 3,
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "ComfyUI_13306_.png",
+        "image"
+      ],
+      "shape": 1
+    },
+    {
+      "id": 4,
+      "type": "LoadImage",
+      "pos": [
+        110,
+        430
+      ],
+      "size": {
+        "0": 250,
+        "1": 350
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            4
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [],
+          "shape": 3,
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "gm_forest_00008_.png",
+        "image"
+      ],
+      "shape": 1
+    },
+    {
+      "id": 1,
+      "type": "FrameMaker",
+      "pos": [
+        400,
+        70
+      ],
+      "size": {
+        "0": 342.5999755859375,
+        "1": 610
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "subject_image",
+          "type": "IMAGE",
+          "link": 1,
+          "slot_index": 0
+        },
+        {
+          "name": "subject_alpha",
+          "type": "MASK",
+          "link": 2
+        },
+        {
+          "name": "bg1",
+          "type": "IMAGE",
+          "link": 4,
+          "slot_index": 2
+        },
+        {
+          "name": "bg2",
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "bg3",
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "bg4",
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "frames",
+          "type": "IMAGE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "frames",
+          "type": "IMAGE",
+          "links": [
+            28
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "subject_image",
+          "type": "IMAGE",
+          "links": [],
+          "shape": 3,
+          "slot_index": 1
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "frame_count",
+          "type": "INT",
+          "links": [],
+          "shape": 3,
+          "slot_index": 4
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "FrameMaker"
+      },
+      "widgets_values": [
+        4,
+        "false",
+        "center to right",
+        50,
+        "front",
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        "center",
+        "true",
+        768,
+        768,
+        "false",
+        512,
+        512,
+        "false"
+      ],
+      "color": "#111111",
+      "bgcolor": "#482b6e",
+      "shape": 1
+    },
+    {
+      "id": 16,
+      "type": "PreviewImage",
+      "pos": [
+        780,
+        70
+      ],
+      "size": {
+        "0": 590,
+        "1": 610
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 28
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "shape": 1
+    }
+  ],
+  "links": [
+    [
+      1,
+      2,
+      0,
+      1,
+      0,
+      "IMAGE"
+    ],
+    [
+      2,
+      2,
+      1,
+      1,
+      1,
+      "MASK"
+    ],
+    [
+      4,
+      4,
+      0,
+      1,
+      2,
+      "IMAGE"
+    ],
+    [
+      28,
+      1,
+      0,
+      16,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {},
+  "version": 0.4
+}
